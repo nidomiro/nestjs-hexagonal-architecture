@@ -1,38 +1,26 @@
-import { DynamicModule, Module } from '@nestjs/common'
+import { Module } from '@nestjs/common'
 import { MyService } from './my.service'
 import { Repository, RepositoryInjectToken } from './repository'
-import {
-	ClassProvider,
-	ExistingProvider,
-	FactoryProvider,
-	ValueProvider,
-} from '@nestjs/common/interfaces/modules/provider.interface'
+import {createConfigurableDynamicRootModule} from "@golevelup/nestjs-modules";
 
-export type PredefinedProvider<T> =
-	| Omit<ClassProvider<T>, 'provide'>
-	| Omit<ValueProvider<T>, 'provide'>
-	| Omit<FactoryProvider<T>, 'provide'>
-	| Omit<ExistingProvider<T>, 'provide'>
 
-export interface MyNestAppCoreModuleConfig extends Pick<DynamicModule, 'imports'> {
-	repositoryProvider: PredefinedProvider<Repository>
+export interface MyNestAppCoreModuleConfig {
+	repository: Repository
 }
 
-@Module({
-	providers: [MyService],
-	exports: [MyService],
-})
-export class MyNestAppCoreModule {
-	public static forRoot(config: MyNestAppCoreModuleConfig): DynamicModule {
-		return {
-			module: MyNestAppCoreModule,
-			imports: [...(config.imports ?? [])],
-			providers: [
-				{
-					...config.repositoryProvider,
-					provide: RepositoryInjectToken,
-				},
-			],
+export const MY_NEST_APP_CORE_MODULE_CONFIG = Symbol('MY_NEST_APP_CORE_MODULE_CONFIG')
+
+@Module({})
+export class MyNestAppCoreModule extends createConfigurableDynamicRootModule<MyNestAppCoreModule, MyNestAppCoreModuleConfig>(MY_NEST_APP_CORE_MODULE_CONFIG, {
+	providers: [
+		MyService,
+		{
+			provide: RepositoryInjectToken,
+			inject: [MY_NEST_APP_CORE_MODULE_CONFIG],
+			useFactory: (config: MyNestAppCoreModuleConfig) => config.repository
 		}
-	}
+	],
+	exports: [MyService]
+}){
+
 }
