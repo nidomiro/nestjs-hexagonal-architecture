@@ -20,7 +20,11 @@
       "my-nest-app-monodb-repository": [
         "libs/my-nest-app/monodb-repository/src/index.ts"
       ]
-    }
+    },
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "alwaysStrict": true
   },
   "exclude": ["node_modules", "tmp"]
 }
