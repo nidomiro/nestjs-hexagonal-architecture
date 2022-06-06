@@ -1,5 +1,5 @@
 {
-  "name": "my-nest-app-core",
+  "name": "@nestjs-hexagonal-architecture/my-nest-app-core",
   "version": "0.0.1",
   "type": "commonjs"
 }

@@ -1,5 +1,5 @@
 {
-  "name": "my-nest-app-monodb-repository",
+  "name": "@nestjs-hexagonal-architecture/my-nest-app-monodb-repository",
   "version": "0.0.1",
   "type": "commonjs"
 }

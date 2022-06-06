@@ -1,5 +1,5 @@
 {
-  "name": "my-nest-app-graphql",
+  "name": "@nestjs-hexagonal-architecture/my-nest-app-graphql",
   "version": "0.0.1",
   "type": "commonjs"
 }
