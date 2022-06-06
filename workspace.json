@@ -2,6 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "my-nest-app": "apps/my-nest-app"
+    "my-nest-app": "apps/my-nest-app",
+    "my-nest-app-core": "libs/my-nest-app/core",
+    "my-nest-app-graphql": "libs/my-nest-app/graphql",
+    "my-nest-app-monodb-repository": "libs/my-nest-app/monodb-repository"
   }
 }
