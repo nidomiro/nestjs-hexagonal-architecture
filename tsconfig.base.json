@@ -16,9 +16,9 @@
     "baseUrl": ".",
     "paths": {
       "@nestjs-hexagonal-architecture/my-nest-app-core": ["libs/my-nest-app/core/src/index.ts"],
-      "@nestjs-hexagonal-architecture/my-nest-app-graphql": ["libs/my-nest-app/graphql/src/index.ts"],
-      "@nestjs-hexagonal-architecture/my-nest-app-monodb-repository": [
-        "libs/my-nest-app/monodb-repository/src/index.ts"
+      "@nestjs-hexagonal-architecture/my-nest-app-adapters-graphql": ["libs/my-nest-app/adapters/graphql/src/index.ts"],
+      "@nestjs-hexagonal-architecture/my-nest-app-adapters-monodb-repository": [
+        "libs/my-nest-app/adapters/monodb-repository/src/index.ts"
       ]
     },
     "strict": true,

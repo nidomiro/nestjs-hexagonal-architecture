@@ -1,17 +1,17 @@
 {
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/my-nest-app/graphql/src",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/my-nest-app/adapters/graphql/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/my-nest-app/graphql",
-        "tsConfig": "libs/my-nest-app/graphql/tsconfig.lib.json",
-        "packageJson": "libs/my-nest-app/graphql/package.json",
-        "main": "libs/my-nest-app/graphql/src/index.ts",
-        "assets": ["libs/my-nest-app/graphql/*.md"]
+        "outputPath": "dist/libs/my-nest-app/adapters/graphql",
+        "tsConfig": "libs/my-nest-app/adapters/graphql/tsconfig.lib.json",
+        "packageJson": "libs/my-nest-app/adapters/graphql/package.json",
+        "main": "libs/my-nest-app/adapters/graphql/src/index.ts",
+        "assets": ["libs/my-nest-app/adapters/graphql/*.md"]
       }
     },
     "publish": {
@@ -30,14 +30,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/my-nest-app/graphql/**/*.ts"]
+        "lintFilePatterns": ["libs/my-nest-app/adapters/graphql/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/my-nest-app/graphql"],
+      "outputs": ["coverage/libs/my-nest-app/adapters/graphql"],
       "options": {
-        "jestConfig": "libs/my-nest-app/graphql/jest.config.ts",
+        "jestConfig": "libs/my-nest-app/adapters/graphql/jest.config.ts",
         "passWithNoTests": true
       }
     }
